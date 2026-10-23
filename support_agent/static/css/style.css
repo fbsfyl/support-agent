@@ -1,0 +1,120 @@
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #F3F6F8;
+}
+.ms-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #E1DFDD;
+}
+.ms-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.flow-line {
+    position: relative;
+}
+.flow-line::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -24px;
+    width: 24px;
+    height: 2px;
+    background: #0078D4;
+    transform: translateY(-50%);
+}
+.flow-line:last-child::after {
+    display: none;
+}
+.pulse-dot {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.sidebar-item {
+    transition: all 0.2s ease;
+}
+.sidebar-item:hover {
+    background: rgba(255,255,255,0.1);
+}
+.sidebar-item.active {
+    background: rgba(255,255,255,0.15);
+    border-left: 3px solid white;
+}
+.kpi-card {
+    position: relative;
+    overflow: hidden;
+}
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #C8C6C4;
+    border-radius: 3px;
+}
+.agent-processing {
+    background: linear-gradient(90deg, #E5F1FB 25%, #F0F7FF 50%, #E5F1FB 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+.avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: #fff;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.view {
+    display: none;
+}
+.view.active {
+    display: block;
+}
+.toast {
+    position: fixed;
+    top: 72px;
+    right: 24px;
+    z-index: 100;
+    background: #107C10;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.error { background: #D13438; }
